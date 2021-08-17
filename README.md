@@ -4,7 +4,7 @@ neovim configuration files
 
 
 | **keybindings** |    **action**      |
-|:---------------:|:------------------:|
+|----------------:|:-------------------|
 | `<Leader> ff`   | toggle netrw       |
 | `<Leader> fe`   | compile            |
 | `<Leader> fw`   | run                |
