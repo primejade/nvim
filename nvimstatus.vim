@@ -104,25 +104,43 @@ let g:currentmode={
 "set statusline+=\                     " blank space
 "}}}
 "" statusline 
-set laststatus=2                      " show status line
-set statusline=
-set statusline+=%1*\ %{toupper(g:currentmode[mode()])}\  " The current mode
-set statusline+=\(                    " blank space
-set statusline+=%{StatuslineGitBranch()}
-set statusline+=\)                    " blank space
-set statusline+=\                     " blank space
-set statusline+=\»\                   " blank space
-set statusline+=%2*\ %<%F\ \          " File path, modified, readonly, helpfile, preview
-set statusline+=%3*\ %r%h%w\          " FileType
-set statusline+=%=                    " Right Side
+set laststatus=2                " show status line
+set statusline=                 
+set statusline+=%1*\            " colorscheme / blank space
+set statusline+=%{toupper(g:currentmode[mode()])} " The current mode
+set statusline+=\               " blank space
+set statusline+=\(              " opening practises
+set statusline+=%{StatuslineGitBranch()} " git branchname
+set statusline+=\)              " ending practises
+set statusline+=\               " blank space
+set statusline+=\»\             " » / blank space
+set statusline+=%2*\            " colorscheme 
+set statusline+=%<%F            " File path
+set statusline+=\               " blank space
+set statusline+=%3*%m           " modification
+set statusline+=\               " blank space
+set statusline+=%r%h%w          " readonly, helpfile, preview
+set statusline+=\               " blank space
+set statusline+=%=              " Right Side
 set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''} " Encoding
-set statusline+=\ (%{&ff})\           " FileFormat (dos/unix..)
-set statusline+=%3*\|                 " Separator
-set statusline+=%3*\ \-%Y\-\          " Colomn number
-set statusline+=%2*\ \cl\:\ %02v\ \ln\:\ %02l/%L\  " Line number / total lines, percentage of document
-"set statusline+=%2*\ \|              " Separator
-set statusline+=%1*\ %p%%\            " Line number / total lines, percentage of document
-set statusline+=%1*\ \bfr\:\ %n\ \ \«\ \[%M\]\     " Buffer number
+set statusline+=\ (%{&ff})\     " FileFormat (dos/unix..)
+"set statusline+=%4*\|           " Separator
+"set statusline+=\               " blank space
+set statusline+=\               " blank space
+set statusline+=%2*\cl\ %02v    " Line number / total lines, percentage of document
+set statusline+=\,              " blank space
+set statusline+=\               " blank space
+set statusline+=\ln\ %02l/%L    " Line number / total lines, percentage of document
+set statusline+=\               " blank space
+"set statusline+=%3*\|           " Separator
+"set statusline+=\               " blank space
+set statusline+=\%1*\           " blank space
+set statusline+=%P              " Percentage of document
+set statusline+=\               " blank space
+set statusline+=%1*\-%Y\-       " Colomn number
+set statusline+=\               " blank space
+set statusline+=%1*\«           " Colomn number
+set statusline+=\               " blank space
 
 " statusline colors{{{
 ""
@@ -219,3 +237,4 @@ set statusline+=%1*\ \bfr\:\ %n\ \ \«\ \[%M\]\     " Buffer number
 hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#1c1c1c guibg=#26ccff
 hi User2 ctermfg=119 ctermbg=232 guifg=#ffffff guibg=#292929
 hi User3 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#ffffff guibg=#262626
+hi User4 cterm=bold ctermfg=232 ctermbg=167 gui=bold guifg=#010101 guibg=#262626
