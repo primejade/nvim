@@ -11,6 +11,12 @@ noremap <silent> + :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR
 "" switch to previous tab with _
 noremap <silent> _ :tabprevious<CR> 
 "
+"" toggle paste mode
+nmap <C-P> :set paste!<CR>
+"
+"" toggle ltr support
+nmap <leader>rl   :set termbidi!<CR>
+"
 "" toggle netrw with \ff
 map <Leader>ff  :20Lexplore<CR><C-w><C-w>
 "
@@ -37,15 +43,15 @@ nmap <C-k>  <C-w>k
 nmap <C-l>  <C-w>l
 "
 "" split long single line spart
-map Q gq
+map Q gqq
 "
 "" save and exit multi pane/tabs 
 nnoremap <C-X> :qa!<CR>
 nnoremap <C-x> :xa!<CR>
 "
-"" spell check (toggle)
-map <C-s>  :setlocal spell! spelllang=en_us<CR>
-"map <C-s>  :setlocal spell! spelllang=en_us<CR>
+"" spelling check
+map <leader>se  :setlocal spell! spelllang=en_us<CR>
+map <leader>sf  :set spelllang=fr<CR>
 "
 "" use control-c instead of escape
 nnoremap <C-c> <Esc>

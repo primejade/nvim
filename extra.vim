@@ -21,9 +21,9 @@ set shortmess+=c                        " no showing matchs
 "
 "" airline 
 "" tab line enable
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 "" encrypt detection
-let g:airline_detect_crypt=1
+"let g:airline_detect_crypt=1
 
 "let g:airline#extensions#tabline#left_sep = ' » '
 "let g:airline#extensions#tabline#right_sep = ' « '
@@ -42,14 +42,14 @@ let g:airline_detect_crypt=1
 "
 call plug#begin('~/.config/nvim/vimplug')
 
-    Plug 'vim-scripts/AutoComplPop'       " auto completion plugin
+"    Plug 'vim-scripts/AutoComplPop'       " auto completion plugin
     Plug 'ap/vim-css-color'               " Color previews for CSS
     Plug 'itchyny/lightline.vim'          " Lightline statusbar
 "    Plug 'vim-airline/vim-airline'
 "    Plug 'vim-airline/vim-airline-themes'
 "    Plug 'Valloric/YouCompleteMe'
-"    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "    Plug 'honza/vim-snippets'
 
 call plug#end()

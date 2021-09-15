@@ -16,8 +16,8 @@ set background=dark                   " use the dark theme
 "" ghdark dalton minimalist ayu       " --
 "" sunbather dark_plus vadelma        " --
 "                                     
-"colorscheme monokai_pro               " active colorscheme
-colorscheme OceanicNext               " active colorscheme
+colorscheme monokai_pro               " active colorscheme
+"colorscheme OceanicNext               " active colorscheme
 "                                      
 "" lightline                          "
 ""
@@ -27,7 +27,7 @@ colorscheme OceanicNext               " active colorscheme
 "
 " active colorscheme
 let g:lightline = {
-     \ 'colorscheme' : 'mpvadelma',
+     \ 'colorscheme' : 'materia',
      \ }
 "
 """ vim airline 
@@ -42,6 +42,7 @@ source ~/.config/nvim/skeldir/config.skel.vim
 "" plugins, auto complations
 source ~/.config/nvim/extra.vim
 
+source ~/.config/nvim/plug-config/coc.vim
 "" statusline
 "source ~/.config/nvim/codestatus.vim
 

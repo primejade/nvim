@@ -16,7 +16,7 @@ set background=dark                    " use the dark theme
 "" ghdark dalton minimalist ayu        " --
 "" sunbather dark_plus vadelma         " --
 ""                                      
-colorscheme ayu                       " active colorscheme
+colorscheme xcodedarkhc               " active colorscheme
 ""                                      
 "" lightline                           "
 ""
@@ -26,7 +26,7 @@ colorscheme ayu                       " active colorscheme
 ""
 "" active colorscheme
 let g:lightline = {
-     \ 'colorscheme' : 'materia',
+     \ 'colorscheme' : 'mpvadelma',
      \ }
 ""
 "

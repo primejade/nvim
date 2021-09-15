@@ -4,5 +4,4 @@
 # |_||_|___|   P
 #              
 
-#!/usr/bin/env python
-
+#!/bin/python3
