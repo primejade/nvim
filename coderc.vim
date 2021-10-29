@@ -16,8 +16,7 @@ set background=dark                   " use the dark theme
 "" ghdark dalton minimalist ayu       " --
 "" sunbather dark_plus vadelma        " --
 "                                     
-colorscheme monokai_pro               " active colorscheme
-"colorscheme OceanicNext               " active colorscheme
+colorscheme codedark
 "                                      
 "" lightline                          "
 ""
@@ -26,20 +25,24 @@ colorscheme monokai_pro               " active colorscheme
 "" OldHope selenized_black            " -}}}
 "
 " active colorscheme
-let g:lightline = {
-     \ 'colorscheme' : 'materia',
-     \ }
+"let g:lightline = { 'colorscheme' : 'materia', }
+"let g:lightline = { 'colorscheme' : 'deus', }
 "
-""" vim airline 
+"" vim airline 
+let g:airline_symbols_ascii = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#fugitiveline#enabled = 1
+"
 "" colorscheme
-"let g:airline_theme='codedark'
-"
+let g:airline_theme='codedark'
+
 ""
 """ skel templates
 "" add ready-to-use text by .ext
-source ~/.config/nvim/skeldir/config.skel.vim
+source ~/.vim/skels.vim
 
 "" plugins, auto complations
+"source ~/.config/nvim/ide.vim
 source ~/.config/nvim/extra.vim
 
 source ~/.config/nvim/plug-config/coc.vim
@@ -51,4 +54,9 @@ source ~/.config/nvim/cp.vim
 
 "" keybinds
 source ~/.config/nvim/keys.vim
-"" 
+
+"" nnn filemanager
+"source ~/.config/nvim/nnn.vim
+
+"" nerdtree
+source ~/.config/nvim/nerdtree.vim

@@ -1,7 +1,7 @@
 "   _  _ ___    
-"  | || | __|   Hossein Esmailzadeh
-"  | __ | _|    Email:  hosaidenpwr@protonmail.com
-"  |_||_|___|   Matrix: hosaidenpwd:matrix.org
+"  | || | __|   H
+"  | __ | _|    A
+"  |_||_|___|   P
 "               
 "                                     "
 """ skel templates
@@ -10,7 +10,7 @@
 " scripting
 nnoremap ,make :-1read ~/.config/nvim/skeldir/skel.make<CR>Go
 nnoremap ,sh   :-1read ~/.config/nvim/skeldir/skel.sh<CR>Go
-nnoremap ,py   :-1read ~/.config/nvim/skeldir/skel.py<CR>Go
+nnoremap ,py   :-1read ~/.config/nvim/skeldir/skel.py<CR>o
 
 " markup
 nnoremap ,html :-1read ~/.config/nvim/skeldir/skel.html<CR>10jo
@@ -30,3 +30,4 @@ nnoremap ,hs   :-1read ~/.config/nvim/skeldir/skel.hs<CR>
 nnoremap ,intr :-1read ~/.config/nvim/skeldir/skel.intro<CR>Go
 nnoremap ,rm   :-1read ~/.config/nvim/skeldir/skel.rm<CR>2jA
 nnoremap ,obc  :-1read ~/.config/nvim/skeldir/skel.openbox<CR>3wea
+

@@ -23,8 +23,8 @@ map <Leader>ff  :20Lexplore<CR><C-w><C-w>
 """ manual folding save and restore keybinding
 "" zs to save the folds
 "" zr to restore the previous saved folds
-autocmd Filetype *  nnoremap zs :mkview<CR>    
-autocmd Filetype *  nnoremap zr :loadview<CR>
+autocmd Filetype * nnoremap zs :mkview<CR>    
+autocmd Filetype * nnoremap zr :loadview<CR>
 "
 """ auto complition
 "" cancel copmlition
@@ -51,7 +51,7 @@ nnoremap <C-x> :xa!<CR>
 "
 "" spelling check
 map <leader>se  :setlocal spell! spelllang=en_us<CR>
-map <leader>sf  :set spelllang=fr<CR>
+map <leader>sf  :setlocal spell! spelllang=fr<CR>
 "
 "" use control-c instead of escape
 nnoremap <C-c> <Esc>

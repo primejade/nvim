@@ -43,14 +43,19 @@ set shortmess+=c                        " no showing matchs
 call plug#begin('~/.config/nvim/vimplug')
 
 "    Plug 'vim-scripts/AutoComplPop'       " auto completion plugin
-    Plug 'ap/vim-css-color'               " Color previews for CSS
-    Plug 'itchyny/lightline.vim'          " Lightline statusbar
-"    Plug 'vim-airline/vim-airline'
+"    Plug 'ap/vim-css-color'               " Color previews for CSS
+"    Plug 'itchyny/lightline.vim'          " Lightline statusbar
+    Plug 'vim-airline/vim-airline'
 "    Plug 'vim-airline/vim-airline-themes'
 "    Plug 'Valloric/YouCompleteMe'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "    Plug 'honza/vim-snippets'
+"    Plug 'mcchrish/nnn.vim'
+"    Plug 'dracula/vim', { 'as': 'dracula' }
+
+    " NERD tree will be loaded on the first invocation of NERDTreeToggle command
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
-"
+

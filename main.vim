@@ -8,9 +8,7 @@
 "" we can set some words as an alias with ab command
 "" for e.g here fsf is an alias for 'Free Software Foundation'
 "" use Ctrl-v afer abreviation words to don't expand
-ab fsf Free Software Foundation
-ab <. «
-ab .> »
+source ~/.config/nvim/abreviation.vim
 ""  "
 ""  "                                   
 set path+=**                     " add current dir to the path 
@@ -24,7 +22,8 @@ syntax enable                         " colorful texts
 set termguicolors                     " let vim use color in GUI mode
 "                                     " 
 set wildmenu                     " enable popup menu
-set wildmode=longest:list,full   " -
+set wildmode=longest:list,full
+"set wildmode=list:full           " -
 set showcmd                      " show enterd key 
 set noshowmode                   " diable showing mode in the old way
 "                                " 
@@ -63,7 +62,7 @@ au BufRead,BufNewFile *.vifm set filetype=vim
 "au BufRead,BufNewFile *.xml set filetype=html
 "                                     
 "" auto comment and uncomment with - and +
-autocmd FileType sh,ruby,python,conf,yaml    let b:comment_leader = '#'
+autocmd FileType sh,ruby,python,conf,yaml,make    let b:comment_leader = '#'
 autocmd FileType c,cpp,java,scala,json  let b:comment_leader = '//'
 autocmd FileType haskell,lua            let b:comment_leader = '--'
 autocmd FileType vim                    let b:comment_leader = '"'
@@ -91,7 +90,11 @@ let g:netrw_alto         = 0
 let g:netrw_altv         = 1
 let g:netrw_winsize      = 80
 let g:netrw_preview      = 1
-let g:netrw_keepdir      = 0
+let g:netrw_keepdir      = 1
+"
+let g:netrw_cursor       = 4
+let g:netrw_fastbrose    = 2
+let g:netrw_sort_by      = "exten"
 "
 "" split char
 set fillchars+=vert:\|

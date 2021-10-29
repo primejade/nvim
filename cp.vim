@@ -1,17 +1,16 @@
 " important option that should already be set!
-set hidden
-
+"set hidden
 " available options:
 " * g:split_term_style
 " * g:split_term_resize_cmd
 "
-"" split term function {{{
+" split term function {{{
 function! TermWrapper(command) abort
   if !exists('g:split_term_style') | let g:split_term_style = 'vertical' | endif
   if g:split_term_style ==# 'vertical'
-    let buffercmd = '70vnew'
+        let buffercmd = '80vnew'
   elseif g:split_term_style ==# 'horizontal'
-    let buffercmd = '20new'
+        let buffercmd = '20new'
   else
     echoerr 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'' but is currently set to ''' . g:split_term_style . ''')'
     throw 'ERROR! g:split_term_style is not a valid value (must be ''horizontal'' or ''vertical'')'
@@ -24,10 +23,20 @@ function! TermWrapper(command) abort
   exec 'setlocal nornu nonu'
   exec 'startinsert'
 endfunction
+" }}}
+
+" split size {{{
+let g:split_term_resize_cmd = ('resize 50')
+" }}}
+"" choose between 'vertical | ' and 'horizontal - ' {{{
+"" for how the terminal window is split
+"" (default is vertical)
+"let g:split_term_style = 'vertical' " |
+let g:split_term_style = 'horizontal' " -
 "" }}}
 "
 """ commands
-""  C/C++ section {{{
+"  C/C++ section {{{
 ""  -CPPCompile- 
 command! -nargs=0 CPPCompile      call TermWrapper(printf('g++ %s', expand('%')))
 ""  -CCompile-    
@@ -35,27 +44,26 @@ command! -nargs=0 CCompile        call TermWrapper(printf('gcc %s', expand('%'))
 ""  -TestAndRun-   run ./a.out
 command! -nargs=0 CCRunOutput     call TermWrapper(printf('./a.out'))
 ""
-""" Commands:
 autocmd FileType cpp   nnoremap <leader>fe :CPPCompile<CR>
 autocmd FileType c     nnoremap <leader>fe :CCompile<CR>
 autocmd FileType c,cpp nnoremap <leader>fw :CCRunOutput<CR>
-""" }}}
-"""  compile and run in external terminal with makefile {{{
-"command! -nargs=0 EXTerOutput         call TermWrapper(printf('xterm -T RunPrompt -e "./output"'))
-"command! -nargs=0 EXTerCompilOutput   call TermWrapper(printf('xterm -T RunPrompt -e "make && ./output"'))
-"
-"autocmd FileType c,cpp nnoremap <leader>ft :EXTerOutput<CR>
-"autocmd FileType c,cpp nnoremap <leader>fg :EXTerCompilOutput<CR>
-""" }}}
-""  markdown, groff and latex compilation {{{
-"autocmd FileType tex    nnoremap <leader>fe :!pdflatex %:r.tex<CR>
-autocmd FileType tex    nnoremap <leader>fe :!xelatex %:r.tex<CR>
+" }}}
 
-" pandoc using latex
-autocmd Filetype markdown nnoremap <leader>fe :!pandoc %:r.md -o %:r.pdf<CR>
-" use groff instead of latex
+"" latex {{{
+"command! -nargs=0 TEXCompile      call TermWrapper(printf('pdflatex %s', expand('%')))
+command! -nargs=0 TEXCompile      call TermWrapper(printf('xelatex %s', expand('%')))
+autocmd FileType tex    nnoremap <leader>fe :TEXCompile<CR>
+"" }}}
+"" markdown {{{
+"" pandoc using latex
+"autocmd Filetype markdown nnoremap <leader>fe :!pandoc %:r.md -o %:r.pdf<CR>
+"" use groff instead of latex
 "autocmd Filetype markdown nnoremap <leader>fe :!pandoc %:r.md -t ms -o %:r.ms.pdf<CR>
-
+"" presentation using mdp
+command! -nargs=0  MarkDownPer    call TermWrapper(printf('mdp %s', expand('%')))
+autocmd Filetype markdown nnoremap <leader>fe :MarkDownPer<CR>
+"" }}}
+"" groff {{{
 autocmd FileType nroff  nnoremap <leader>fe :!groff -wall -ms -Tpdf %:r.ms > %:r.pdf<CR>
 
 "command! -nargs=0 GroffPDF        call TermWrapper(printf('groff -wall -ms -Tpdf %s > %.pdf', expand('%')))
@@ -98,16 +106,24 @@ autocmd FileType python  nnoremap <leader>fe   :PyConsoleRun<CR>
 autocmd FileType python  nnoremap <leader>ft   :!xterm -T RunPrompt -e "python % ; read -p 'Press Enter to exit ' dumpvar"<CR>
 
 "" }}}
-"autocmd FileType nroff nnoremap <leader>fe :NroffCompile<CR>
-"autocmd FileType python nnoremap <leader>fb :!python %<CR>
+
+""" compile and run in external terminal with makefile {{{
+"command! -nargs=0 EXTerOutput         call TermWrapper(printf('xterm -T RunPrompt -e "./output"'))
+"command! -nargs=0 EXTerCompilOutput   call TermWrapper(printf('xterm -T RunPrompt -e "make && ./output"'))
 "
-"" choose between 'vertical | ' and 'horizontal - ' {{{
-"" for how the terminal window is split
-"" (default is vertical)
-"let g:split_term_style = 'vertical' " |
-let g:split_term_style = 'horizontal' " -
-"" }}}
-"" split size {{{
-"let g:split_term_resize_cmd = 'resize 80'
-"let g:split_term_resize_cmd = ('resize 80')
-"" }}}
+"autocmd FileType c,cpp nnoremap <leader>ft :EXTerOutput<CR>
+"autocmd FileType c,cpp nnoremap <leader>fg :EXTerCompilOutput<CR>
+""" }}}
+"
+" git section {{{ 
+" add and commit - GITCOMMIT -
+command! -nargs=0 GITCOMMIT  call TermWrapper(printf('git add . && git commit'))
+autocmd FileType *  nnoremap <leader>gc   :GITCOMMIT<CR>
+" show logs - GITLOGS -
+command! -nargs=0 GITLOGS  call TermWrapper(printf('git log --oneline --all --graph'))
+autocmd FileType *  nnoremap <leader>gl   :GITLOGS<CR>
+" }}}
+" embedded terminal {{{ 
+command! -nargs=0 EmbTerm  call TermWrapper(printf('bash'))
+autocmd FileType *  nnoremap <leader>tt   :EmbTerm<CR>
+" }}}

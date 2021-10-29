@@ -109,12 +109,12 @@ set statusline=
 set statusline+=%1*\            " colorscheme / blank space
 set statusline+=%{toupper(g:currentmode[mode()])} " The current mode
 set statusline+=\               " blank space
+set statusline+=%2*\            " colorscheme 
 set statusline+=\(              " opening practises
 set statusline+=%{StatuslineGitBranch()} " git branchname
 set statusline+=\)              " ending practises
 set statusline+=\               " blank space
 set statusline+=\»\             " » / blank space
-set statusline+=%2*\            " colorscheme 
 set statusline+=%<%F            " File path
 set statusline+=\               " blank space
 set statusline+=%3*%m           " modification
@@ -134,9 +134,9 @@ set statusline+=\ln\ %02l/%L    " Line number / total lines, percentage of docum
 set statusline+=\               " blank space
 "set statusline+=%3*\|           " Separator
 "set statusline+=\               " blank space
-set statusline+=\%1*\           " blank space
 set statusline+=%P              " Percentage of document
 set statusline+=\               " blank space
+set statusline+=\%1*\           " blank space
 set statusline+=%1*\-%Y\-       " Colomn number
 set statusline+=\               " blank space
 set statusline+=%1*\«           " Colomn number
@@ -234,7 +234,11 @@ set statusline+=\               " blank space
 "hi User4 ctermfg=226 ctermbg=232 guifg=#1c1c1c guibg=#afd7d7
 "
 "
-hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#1c1c1c guibg=#26ccff
+"hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#000000 guibg=#26ccff
+"hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#000000 guibg=#cccccc
+"hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#000000 guibg=#36d276
+"hi User1 cterm=bold ctermfg=232 ctermbg=167 gui=bold guifg=#000000 guibg=#fb4373
+hi User1 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#ffffff guibg=#222222
 hi User2 ctermfg=119 ctermbg=232 guifg=#ffffff guibg=#292929
-hi User3 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#ffffff guibg=#262626
-hi User4 cterm=bold ctermfg=232 ctermbg=167 gui=bold guifg=#010101 guibg=#262626
+hi User3 cterm=bold ctermfg=226 ctermbg=232 gui=bold guifg=#ffffff guibg=#222222
+hi User4 cterm=bold ctermfg=232 ctermbg=167 gui=bold guifg=#010101 guibg=#222222
